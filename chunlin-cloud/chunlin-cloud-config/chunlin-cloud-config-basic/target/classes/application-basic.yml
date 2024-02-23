@@ -1,0 +1,42 @@
+# 项目相关配置
+chunlincloud:
+  # 名称
+  name: ChunLinCloud
+  # 版本
+  version: 1.0.0
+  # 版权年份
+  copyrightYear: 2024
+  traceRequestIdKey: AG-RequestId
+
+# 日志配置
+logging:
+  level:
+    # 记得配置到包名
+    com.chunlin.cloud: debug
+    org.springframework: info
+  pattern:
+    console: "%date requestId:%X{${chunlincloud.traceRequestIdKey}} %thread %green(%level) [%cyan(%logger{10}):%magenta(%line)] %red(%method) | %msg%n"
+
+# Spring Config
+spring:
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+    # 有些版本的 IDEA 会自动设置 properties 的编码为 IOS-8859-1 请在 (编辑器 > 文件编码) 配置里设置成 UTF8
+    encoding: UTF-8
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关，线上记得关闭
+      enabled: false
+  # compatible with swagger
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+    serialization:
+      write-dates-as-timestamps: false
+    date-format: yyyy-MM-dd HH:mm:ss

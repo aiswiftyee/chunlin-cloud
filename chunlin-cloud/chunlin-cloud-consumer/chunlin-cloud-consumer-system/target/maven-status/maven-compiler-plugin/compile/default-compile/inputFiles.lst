@@ -1,0 +1,7 @@
+D:\workspaces\projects\could-project\cloud\chunlin-cloud\chunlin-cloud-consumer\chunlin-cloud-consumer-system\src\main\java\com\chunlin\cloud\consumer\system\config\RestTemplateConfiguration.java
+D:\workspaces\projects\could-project\cloud\chunlin-cloud\chunlin-cloud-consumer\chunlin-cloud-consumer-system\src\main\java\com\chunlin\cloud\consumer\system\config\FeignConfiguration.java
+D:\workspaces\projects\could-project\cloud\chunlin-cloud\chunlin-cloud-consumer\chunlin-cloud-consumer-system\src\main\java\com\chunlin\cloud\consumer\system\query\NoticeQuery.java
+D:\workspaces\projects\could-project\cloud\chunlin-cloud\chunlin-cloud-consumer\chunlin-cloud-consumer-system\src\main\java\com\chunlin\cloud\consumer\system\feign\fallback\SysNoticeClientFallback.java
+D:\workspaces\projects\could-project\cloud\chunlin-cloud\chunlin-cloud-consumer\chunlin-cloud-consumer-system\src\main\java\com\chunlin\cloud\consumer\system\feign\SysNoticeClient.java
+D:\workspaces\projects\could-project\cloud\chunlin-cloud\chunlin-cloud-consumer\chunlin-cloud-consumer-system\src\main\java\com\chunlin\cloud\consumer\system\SystemConsumerApplication.java
+D:\workspaces\projects\could-project\cloud\chunlin-cloud\chunlin-cloud-consumer\chunlin-cloud-consumer-system\src\main\java\com\chunlin\cloud\consumer\system\controller\SysNoticeController.java

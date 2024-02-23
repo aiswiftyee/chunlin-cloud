@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies-parent</artifactId>
+        <version>3.1.5</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.chunlin.cloud</groupId>
+    <artifactId>chunlin-cloud-dependencies</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>chunlin Cloud Dependencies</name>
+    <description>春林微服务-依赖管理</description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>ZHUCHUNLIN</name>
+            <email>zcl18862090521@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <!-- Project revision -->
+        <revision>1.0.0</revision>
+
+        <!-- Spring Cloud -->
+        <spring-boot.version>2.7.6</spring-boot.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <spring-cloud-dependencies-parent.version>3.1.5</spring-cloud-dependencies-parent.version>
+
+        <!-- DB & MyBatis-Plus Versions -->
+        <druid.version>1.2.21</druid.version>
+        <mysql-connector-j.version>8.0.31</mysql-connector-j.version>
+        <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <dynamic-datasource-boot.version>3.5.2</dynamic-datasource-boot.version>
+        <pagehelper-boot.version>1.4.1</pagehelper-boot.version>
+
+        <!-- Tools Versions -->
+        <poi.version>5.1.0</poi.version>
+
+        <!-- Apache Commons Versions -->
+
+        <!-- Maven Plugin Versions -->
+        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- chunlinCloud Model Dependencies -->
+            <dependency>
+                <groupId>com.chunlin.cloud</groupId>
+                <artifactId>chunlin-cloud-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chunlin.cloud</groupId>
+                <artifactId>chunlin-cloud-config-basic</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chunlin.cloud</groupId>
+                <artifactId>chunlin-cloud-config-mapper</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chunlin.cloud</groupId>
+                <artifactId>chunlin-cloud-domain-system</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- Spring Cloud Dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring-cloud-dependencies-parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+                <version>${spring-cloud-dependencies-parent.version}</version>
+            </dependency>
+
+
+            <!-- Nacos Dependencies -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+
+            <!-- DB & MyBatis-Plus Dependencies -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql-connector-j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-boot.version}</version>
+            </dependency>
+
+            <!-- Tools Excel Dependencies -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- POM 规范化（简化）插件 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <!-- 指示插件在运行后更新原始 POM 文件 -->
+                    <updatePomFile>true</updatePomFile>
+                    <!-- 设置模式为仅解析 CI 友好的属性，这意味着只展开与持续集成相关的变量 -->
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <!-- 插件执行定义 -->
+                <executions>
+                    <!-- 第一个执行目标，在构建生命周期的 process-resources 阶段触发 -->
+                    <execution>
+                        <id>flatten</id>
+                        <!-- 绑定到 Maven 构建周期的特定阶段 -->
+                        <phase>process-resources</phase>
+                        <!-- 指定要执行的目标任务 -->
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <!-- 第二个执行目标，在 clean 阶段触发 -->
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <!-- 用于清理 flatten 操作生成的临时文件 -->
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.chunlin.cloud</groupId>
+    <artifactId>chunlin-cloud-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <groupId>com.chunlin.cloud</groupId>
+  <artifactId>chunlin-cloud-provider</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>chunlin Cloud Provider</name>
+  <description>服务提供者</description>
+  <url>https://spring.io/spring-cloud/chunlin-cloud-parent/chunlin-cloud-provider</url>
+  <organization>
+    <name>Pivotal Software, Inc.</name>
+    <url>https://www.spring.io</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>ZHUCHUNLIN</name>
+      <email>zcl18862090521@gmail.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/spring-cloud/spring-cloud-build.git/chunlin-cloud-parent/chunlin-cloud-provider</connection>
+    <developerConnection>scm:git:ssh://git@github.com/spring-cloud/spring-cloud-build.git/chunlin-cloud-parent/chunlin-cloud-provider</developerConnection>
+    <url>https://github.com/spring-cloud/spring-cloud-build/chunlin-cloud-parent/chunlin-cloud-provider</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.chunlin.cloud</groupId>
+      <artifactId>chunlin-cloud-common</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+      <version>2021.0.5.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+      <version>2021.0.5.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>2.6.13</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <version>2.6.13</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

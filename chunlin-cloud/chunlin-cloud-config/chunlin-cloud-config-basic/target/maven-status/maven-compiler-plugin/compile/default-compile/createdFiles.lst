@@ -1,0 +1,4 @@
+com\chunlin\cloud\config\basic\security\xss\JsonHtmlXssTrimSerializer.class
+com\chunlin\cloud\config\basic\JacksonConfiguration.class
+com\chunlin\cloud\config\basic\ProjectBasicConfiguration.class
+META-INF\spring-configuration-metadata.json

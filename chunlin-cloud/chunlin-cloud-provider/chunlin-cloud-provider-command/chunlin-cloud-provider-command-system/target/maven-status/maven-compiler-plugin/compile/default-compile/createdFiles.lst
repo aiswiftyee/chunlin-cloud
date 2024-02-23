@@ -1,0 +1,11 @@
+com\chunlin\cloud\provider\command\system\notice\service\impl\SysNoticeServiceImpl.class
+com\chunlin\cloud\provider\command\system\notice\model\NoticeModelFactory.class
+com\chunlin\cloud\provider\command\system\notice\model\NoticeModel.class
+com\chunlin\cloud\provider\command\system\notice\query\NoticeQuery.class
+com\chunlin\cloud\provider\command\system\notice\controller\SysNoticeController.class
+com\chunlin\cloud\provider\command\system\notice\NoticeAddCommand.class
+com\chunlin\cloud\provider\command\system\notice\service\SysNoticeService.class
+com\chunlin\cloud\provider\command\system\notice\NoticeUpdateCommand.class
+com\chunlin\cloud\provider\command\system\SystemCommandApplication.class
+com\chunlin\cloud\provider\command\system\notice\handler\NoticeCommandHandler.class
+com\chunlin\cloud\provider\command\system\notice\mapper\SysNoticeMapper.class

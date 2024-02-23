@@ -1,0 +1,30 @@
+{
+  "groups": [
+    {
+      "name": "chunlincloud",
+      "type": "com.chunlin.cloud.config.basic.ProjectBasicConfiguration",
+      "sourceType": "com.chunlin.cloud.config.basic.ProjectBasicConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "chunlincloud.copyright-year",
+      "type": "java.lang.String",
+      "description": "版权年份",
+      "sourceType": "com.chunlin.cloud.config.basic.ProjectBasicConfiguration"
+    },
+    {
+      "name": "chunlincloud.name",
+      "type": "java.lang.String",
+      "description": "项目名称",
+      "sourceType": "com.chunlin.cloud.config.basic.ProjectBasicConfiguration"
+    },
+    {
+      "name": "chunlincloud.version",
+      "type": "java.lang.String",
+      "description": "版本",
+      "sourceType": "com.chunlin.cloud.config.basic.ProjectBasicConfiguration"
+    }
+  ],
+  "hints": []
+}

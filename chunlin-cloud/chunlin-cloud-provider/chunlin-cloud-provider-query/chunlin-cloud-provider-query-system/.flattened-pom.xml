@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.chunlin.cloud</groupId>
+    <artifactId>chunlin-cloud-provider-query</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <groupId>com.chunlin.cloud</groupId>
+  <artifactId>chunlin-cloud-provider-query-system</artifactId>
+  <version>1.0.0</version>
+  <name>chunlin Cloud Provider Query System</name>
+  <description>服务提供者-查询侧-System</description>
+  <url>https://spring.io/spring-cloud/chunlin-cloud-parent/chunlin-cloud-provider/chunlin-cloud-provider-query/chunlin-cloud-provider-query-system</url>
+  <organization>
+    <name>Pivotal Software, Inc.</name>
+    <url>https://www.spring.io</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>ZHUCHUNLIN</name>
+      <email>zcl18862090521@gmail.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/spring-cloud/spring-cloud-build.git/chunlin-cloud-parent/chunlin-cloud-provider/chunlin-cloud-provider-query/chunlin-cloud-provider-query-system</connection>
+    <developerConnection>scm:git:ssh://git@github.com/spring-cloud/spring-cloud-build.git/chunlin-cloud-parent/chunlin-cloud-provider/chunlin-cloud-provider-query/chunlin-cloud-provider-query-system</developerConnection>
+    <url>https://github.com/spring-cloud/spring-cloud-build/chunlin-cloud-parent/chunlin-cloud-provider/chunlin-cloud-provider-query/chunlin-cloud-provider-query-system</url>
+  </scm>
+</project>

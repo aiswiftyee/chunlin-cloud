@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.chunlin.cloud</groupId>
+        <artifactId>chunlin-cloud-config</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>chunlin-cloud-config-mapper</artifactId>
+    <packaging>jar</packaging>
+
+    <name>chunlin Cloud Config Mapper</name>
+    <description>配置模块-Mapper</description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>ZHUCHUNLIN</name>
+            <email>zcl18862090521@gmail.com</email>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <!-- chunlinCloud Model Dependencies -->
+        <dependency>
+            <groupId>com.chunlin.cloud</groupId>
+            <artifactId>chunlin-cloud-config-basic</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <!-- Spring Boot Dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <!-- optional=true，依赖不会往下传递，如果有项目依赖本项目，并且想要使用 configuration-processor，需要重新引入 -->
+            <optional>true</optional>
+        </dependency>
+        <!-- 热部署 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <!-- optional=true，依赖不会往下传递，如果有项目依赖本项目，并且想要使用 devtools，需要重新引入 -->
+            <optional>true</optional>
+        </dependency>
+
+        <!-- DB & MyBatis-Plus Dependencies -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

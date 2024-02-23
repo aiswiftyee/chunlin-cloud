@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-build</artifactId>
+        <version>3.1.5</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.chunlin.cloud</groupId>
+    <artifactId>chunlin-cloud-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>chunlin Cloud Parent</name>
+    <description>春林微服务-根项目</description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>ZHUCHUNLIN</name>
+            <email>zcl18862090521@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <!-- Project revision -->
+        <revision>1.0.0</revision>
+
+        <!-- Spring Cloud -->
+        <spring-boot.version>2.7.6</spring-boot.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+
+        <!-- Mock Test -->
+        <powermock.version>2.0.9</powermock.version>
+
+        <!-- Tools Versions -->
+        <hutool.version>5.8.25</hutool.version>
+        <google-guava.version>32.0.1-jre</google-guava.version>
+
+        <!-- Maven Plugin Versions -->
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+        <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
+        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+
+        <!-- 单元测试代码覆盖率 -->
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <!-- 这是传递给 Surefire/Failsafe 插件的额外 JVM 参数 -->
+        <surefireArgLine>-javaagent:${settings.localRepository}/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar=destfile=${project.build.directory}/jacoco.exec,append=true</surefireArgLine>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Boot Dependencies -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud Dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud Alibaba Dependencies -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- chunlin Cloud Dependencies -->
+            <dependency>
+                <groupId>com.chunlin.cloud</groupId>
+                <artifactId>chunlin-cloud-dependencies</artifactId>
+                <version>${revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- JUnit Test Dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Mock Test Dependencies -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito2</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Spring Test Dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Tools Dependencies -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${google-guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Spring 风格的代码格式化插件 -->
+                <plugin>
+                    <groupId>io.spring.javaformat</groupId>
+                    <artifactId>spring-javaformat-maven-plugin</artifactId>
+                    <version>${spring-javaformat.version}</version>
+                    <!-- 配置该插件执行的阶段和动作 -->
+                    <executions>
+                        <execution>
+                            <!-- 将此插件绑定到 Maven 构建生命周期的 validate 阶段 -->
+                            <phase>validate</phase>
+                            <configuration>
+                                <!-- 关闭自动格式化 -->
+                                <skip>true</skip>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <!-- 编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <!-- 插件配置会被子模块继承 -->
+                <inherited>true</inherited>
+                <configuration>
+                    <!-- 设置 Java 源代码编译的目标 JDK 版本 -->
+                    <source>1.8</source>
+                    <!-- 设置 Java 字节码生成的目标 JDK 版本 -->
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!-- 单元测试插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <!-- 插件配置会被子模块继承 -->
+                <inherited>true</inherited>
+                <configuration>
+                    <!-- 通过 JaCoCo 代理生成代码覆盖率报告 -->
+                    <argLine>${surefireArgLine}</argLine>
+                    <!-- 设置并行执行测试用例的进程数，默认情况下每个测试类都会在一个新的 JVM 进程中运行 -->
+                    <forkCount>1</forkCount>
+                    <!-- 指定是否重用已存在的 JVM 进程来执行后续的测试类，false 表示不重用 -->
+                    <reuseForks>false</reuseForks>
+                    <!-- 跳过测试执行阶段，设置为 true 则不会运行任何测试 -->
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <!-- POM 规范化（简化）插件 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <!-- 指示插件在运行后更新原始 POM 文件 -->
+                    <updatePomFile>true</updatePomFile>
+                    <!-- 设置模式为仅解析 CI 友好的属性，这意味着只展开与持续集成相关的变量 -->
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <!-- 配置该插件执行的阶段和动作 -->
+                <executions>
+                    <!-- 第一个执行目标，在构建生命周期的 process-resources 阶段触发 -->
+                    <execution>
+                        <id>flatten</id>
+                        <!-- 绑定到 Maven 构建周期的特定阶段 -->
+                        <phase>process-resources</phase>
+                        <!-- 在阶段中指定要实现的目标 -->
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <!-- 第二个执行目标，在 clean 阶段触发 -->
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <!-- 在阶段中指定要实现的目标 -->
+                        <goals>
+                            <!-- 用于清理 flatten 操作生成的临时文件 -->
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- 源码生成插件 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven-source-plugin.version}</version>
+                        <!-- 配置该插件执行的阶段和动作 -->
+                        <executions>
+                            <execution>
+                                <!-- 将此插件绑定到 Maven 构建生命周期的 package 阶段 -->
+                                <phase>package</phase>
+                                <!-- 在阶段中指定要实现的目标 -->
+                                <goals>
+                                    <!-- 在不启动新的 JVM 进程的情况下生成包含源代码的 JAR 文件 -->
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- 文档生成插件 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin.version}</version>
+                        <!-- 配置该插件执行的阶段和动作 -->
+                        <executions>
+                            <execution>
+                                <!-- 将此插件绑定到 Maven 构建生命周期的 package 阶段 -->
+                                <phase>package</phase>
+                                <!-- 在阶段中指定要实现的目标 -->
+                                <goals>
+                                    <!-- 生成包含项目 API 文档的 Javadoc JAR 文件 -->
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

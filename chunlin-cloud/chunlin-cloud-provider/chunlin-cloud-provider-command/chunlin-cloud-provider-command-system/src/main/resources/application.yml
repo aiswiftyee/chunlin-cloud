@@ -1,0 +1,41 @@
+server:
+  port: 0
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+    accept-count: 1000
+    threads:
+      max: 800
+      min-spare: 100
+
+spring:
+  application:
+    name: provider-command-system
+  profiles:
+    active: basic,mapper
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 192.168.144.139:8848,192.168.144.139:8849,192.168.144.139:8850
+        enabled: true
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+  config:
+    import:
+      - nacos:datasource_mysql_yuanbenboot.yml?refresh=true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.alibaba.cloud.nacos.configdata: debug

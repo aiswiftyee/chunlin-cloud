@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.chunlin.cloud</groupId>
+        <artifactId>chunlin-cloud-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>chunlin-cloud-provider</artifactId>
+    <packaging>pom</packaging>
+
+    <name>chunlin Cloud Provider</name>
+    <description>服务提供者</description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>ZHUCHUNLIN</name>
+            <email>zcl18862090521@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <!-- Maven Plugin Versions -->
+        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+    </properties>
+
+    <modules>
+        <module>chunlin-cloud-provider-command</module>
+        <module>chunlin-cloud-provider-query</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.chunlin.cloud</groupId>
+                <artifactId>chunlin-cloud-dependencies</artifactId>
+                <version>${revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- chunlinCloud Model Dependencies -->
+        <dependency>
+            <groupId>com.chunlin.cloud</groupId>
+            <artifactId>chunlin-cloud-common</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <!-- Nacos Dependencies -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven-deploy-plugin.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <!--Exclude javadoc jars-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <!--Exclude sources jars-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <configuration>
+                    <skipSource>true</skipSource>
+                </configuration>
+            </plugin>
+
+            <!-- 单元测试插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <!-- 插件配置会被子模块继承 -->
+                <inherited>true</inherited>
+                <configuration>
+                    <!-- 通过 JaCoCo 代理生成代码覆盖率报告 -->
+                    <argLine>${surefireArgLine}</argLine>
+                    <!-- 设置并行执行测试用例的进程数，默认情况下每个测试类都会在一个新的 JVM 进程中运行 -->
+                    <forkCount>1</forkCount>
+                    <!-- 指定是否重用已存在的 JVM 进程来执行后续的测试类，false 表示不重用 -->
+                    <reuseForks>false</reuseForks>
+                    <!-- 跳过测试执行阶段，设置为 true 则不会运行任何测试 -->
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <!-- POM 规范化（简化）插件 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <!-- 指示插件在运行后更新原始 POM 文件 -->
+                    <updatePomFile>true</updatePomFile>
+                    <!-- 设置模式为仅解析 CI 友好的属性，这意味着只展开与持续集成相关的变量 -->
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <!-- 配置该插件执行的阶段和动作 -->
+                <executions>
+                    <!-- 第一个执行目标，在构建生命周期的 process-resources 阶段触发 -->
+                    <execution>
+                        <id>flatten</id>
+                        <!-- 绑定到 Maven 构建周期的特定阶段 -->
+                        <phase>process-resources</phase>
+                        <!-- 在阶段中指定要实现的目标 -->
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <!-- 第二个执行目标，在 clean 阶段触发 -->
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <!-- 在阶段中指定要实现的目标 -->
+                        <goals>
+                            <!-- 用于清理 flatten 操作生成的临时文件 -->
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

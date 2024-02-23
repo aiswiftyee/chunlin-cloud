@@ -1,0 +1,7 @@
+com\chunlin\cloud\consumer\system\config\RestTemplateConfiguration.class
+com\chunlin\cloud\consumer\system\feign\fallback\SysNoticeClientFallback.class
+com\chunlin\cloud\consumer\system\SystemConsumerApplication.class
+com\chunlin\cloud\consumer\system\query\NoticeQuery.class
+com\chunlin\cloud\consumer\system\config\FeignConfiguration.class
+com\chunlin\cloud\consumer\system\controller\SysNoticeController.class
+com\chunlin\cloud\consumer\system\feign\SysNoticeClient.class

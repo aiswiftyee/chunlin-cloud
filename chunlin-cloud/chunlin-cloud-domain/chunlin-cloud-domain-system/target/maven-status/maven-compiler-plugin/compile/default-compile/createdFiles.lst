@@ -1,0 +1,5 @@
+com\chunlin\cloud\domain\system\dto\NoticeDTO.class
+com\chunlin\cloud\domain\system\entity\db\SearchUserDO.class
+com\chunlin\cloud\domain\system\dto\UserDTO.class
+com\chunlin\cloud\domain\system\entity\SysNoticeEntity.class
+com\chunlin\cloud\domain\system\entity\SysUserEntity.class

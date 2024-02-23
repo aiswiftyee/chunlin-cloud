@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.chunlin.cloud</groupId>
+        <artifactId>chunlin-cloud-provider</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>chunlin-cloud-provider-command</artifactId>
+    <packaging>pom</packaging>
+
+    <name>chunlin Cloud Provider Command</name>
+    <description>服务提供者-命令侧</description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>ZHUCHUNLIN</name>
+            <email>zcl18862090521@gmail.com</email>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>chunlin-cloud-provider-command-system</module>
+    </modules>
+
+    <dependencies>
+        <!-- chunlinCloud Model Dependencies -->
+        <dependency>
+            <groupId>com.chunlin.cloud</groupId>
+            <artifactId>chunlin-cloud-config-mapper</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
+
+</project>

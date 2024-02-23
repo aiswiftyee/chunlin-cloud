@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chunlin-cloud-provider-query-system" />
+        <module name="chunlin-cloud-config-basic" />
+        <module name="chunlin-cloud-domain-system" />
+        <module name="chunlin-cloud-common" />
+        <module name="chunlin-cloud-config-mapper" />
+        <module name="chunlin-cloud-provider-command-system" />
+        <module name="chunlin-cloud-consumer-system" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="chunlin-cloud-common" options="-parameters" />
+      <module name="chunlin-cloud-config" options="-parameters" />
+      <module name="chunlin-cloud-config-basic" options="-parameters" />
+      <module name="chunlin-cloud-config-mapper" options="-parameters" />
+      <module name="chunlin-cloud-consumer" options="-parameters" />
+      <module name="chunlin-cloud-consumer-system" options="-parameters" />
+      <module name="chunlin-cloud-domain" options="-parameters" />
+      <module name="chunlin-cloud-domain-system" options="-parameters" />
+      <module name="chunlin-cloud-parent" options="-parameters" />
+      <module name="chunlin-cloud-provider" options="-parameters" />
+      <module name="chunlin-cloud-provider-command" options="-parameters" />
+      <module name="chunlin-cloud-provider-command-system" options="-parameters" />
+      <module name="chunlin-cloud-provider-query" options="-parameters" />
+      <module name="chunlin-cloud-provider-query-system" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,18 @@
+# MyBatis 配置
+mybatis-plus:
+  # 配置 mapper 的扫描，找到所有的 mapper.xml 映射文件
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # 加载全局的配置文件
+  configuration:
+    cacheEnabled: true
+    useGeneratedKeys: true
+    defaultExecutorType: SIMPLE
+    logImpl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    refresh: true
+
+# PageHelper 分页插件
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true
+  params: count=countSql

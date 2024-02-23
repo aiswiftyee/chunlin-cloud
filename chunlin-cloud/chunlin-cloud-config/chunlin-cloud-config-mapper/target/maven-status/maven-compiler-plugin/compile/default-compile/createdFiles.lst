@@ -1,0 +1,3 @@
+com\chunlin\cloud\config\mapper\GlobalTransactionConfiguration.class
+com\chunlin\cloud\config\mapper\MyBatisPlusConfiguration.class
+com\chunlin\cloud\config\mapper\ProjectMapperConfiguration.class

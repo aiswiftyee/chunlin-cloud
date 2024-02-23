@@ -1,0 +1,34 @@
+server:
+  port: 18080
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+    accept-count: 1000
+    threads:
+      max: 800
+      min-spare: 100
+
+spring:
+  application:
+    name: consumer-service-system
+  profiles:
+    active: basic
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 192.168.60.137:8848,192.168.60.137:8849,192.168.60.137:8850
+        # 是否在启动时立即检查服务提供者是否可用
+        fail-fast: true
+    # 使用 Nacos 实现负载均衡器元数据管理
+    loadbalancer:
+      nacos:
+        enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

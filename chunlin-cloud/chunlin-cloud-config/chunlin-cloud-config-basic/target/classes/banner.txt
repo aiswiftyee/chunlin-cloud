@@ -1,0 +1,9 @@
+Application Version: 1.0.0
+Spring Boot Version: ${spring-boot.version}
+Spring Cloud Version: 2021.0.5
+Spring Cloud Alibaba Version: 2021.0.5.0
+   ___    _  _    _   _   _  _     _       ___    _  _
+  / __|  | || |  | | | | | \| |   | |     |_ _|  | \| |
+ | (__   | __ |  | |_| | | .` |   | |__    | |   | .` |
+  \___|  |_||_|   \___/  |_|\_|   |____|  |___|  |_|\_|
+_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
